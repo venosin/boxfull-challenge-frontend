@@ -8,8 +8,11 @@ import esES from "antd/locale/es_ES";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Boxful Challenge",
+  title: "Bienvenido - Boxful",
   description: "Prueba Técnica para Boxful",
+  icons: {
+    icon: '/icons/boxfull.svg',
+  },
 };
 
 export default function RootLayout({
