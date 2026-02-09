@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Boxful Challenge - Frontend Dashboard
 
-## Getting Started
+Aplicación web moderna desarrollada con **Next.js 14**, **TypeScript** y **Ant Design**. Permite la gestión integral de envíos, creación de órdenes con múltiples paquetes y visualización de historial con reportes.
 
-First, run the development server:
+## Tecnologías
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript
+- **UI Component Library:** Ant Design (Pixel Perfect implementation)
+- **HTTP Client:** Axios
+- **Formatting:** Date-fns
 
+---
+
+## Configuración e Instalación
+
+### 1. Requisitos Previos
+- Node.js (v18 o superior)
+- Backend API corriendo (se espera que esté en el puerto 3000)
+
+### 2. Instalación
 ```bash
+# Entrar al directorio del frontend
+cd frontend
+
+# Instalar dependencias
+npm install
+3. Ejecutar el Proyecto
+Para evitar conflictos con el Backend (que utiliza el puerto 3000 por defecto), este proyecto está configurado para iniciarse en el puerto 3001.
+
+Bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Abra su navegador en: http://localhost:3001
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Nota: La aplicación está preconfigurada para buscar el Backend en http://localhost:3000. Si su API corre en otro puerto, ajuste la configuración en src/lib/axios.ts.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Estructura del Proyecto
+La arquitectura sigue los principios de Modularidad y Separación de Responsabilidades:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+src/app: Rutas de la aplicación (Next.js App Router).
 
-## Learn More
+src/components: Componentes reutilizables (Layouts, Modales, Tablas).
 
-To learn more about Next.js, take a look at the following resources:
+src/utils: Constantes, formateadores y funciones auxiliares.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+src/lib: Configuración de clientes externos (Axios).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Esfuerzos Extras y Mejoras
+Además de los requerimientos visuales y funcionales básicos, se implementaron las siguientes mejoras técnicas:
 
-## Deploy on Vercel
+Arquitectura Modular y Clean Code
+Refactorización de componentes complejos (como el formulario de "Crear Orden") para evitar archivos monolíticos. Se separó la lógica de negocio, la data estática (utils/consts.ts) y los componentes visuales (SuccessModal), mejorando la mantenibilidad y legibilidad del código.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Exportación de Datos (CSV)
+Implementación de la funcionalidad opcional de descarga de CSV. Genera un reporte detallado de las órdenes visibles en pantalla, formateando fechas y montos monetarios correctamente para su uso en hojas de cálculo.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Filtros de Búsqueda (Server-Side)
+Integración real con el Backend para el filtrado de órdenes por rango de fechas. No es un filtro solo visual, sino que realiza peticiones optimizadas a la base de datos para manejar grandes volúmenes de información.
+
+Validación Robusta de Tipos
+Implementación de una capa de sanitización en los formularios. Se asegura la conversión estricta de tipos (Strings a Numbers) antes de enviar los payloads al servidor, previniendo errores 400 Bad Request y mejorando la experiencia de usuario.
