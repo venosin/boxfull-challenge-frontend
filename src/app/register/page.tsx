@@ -189,7 +189,7 @@ export default function RegisterPage() {
                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 20 }}>
                     {/* Círculo de fondo suave */}
                     <div style={{ backgroundColor: '#FFF7E6', borderRadius: '50%', padding: 20 }}>
-                        {/* Icono de Warning */}
+                        {/* Icono de Advertencia */}
                         <img src="/icons/icon-warning.svg" alt="Warning" style={{ width: 40, height: 40 }} />
                     </div>
                 </div>

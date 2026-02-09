@@ -31,7 +31,7 @@ api.interceptors.response.use(
         if (error.response && error.response.status === 401) {
             if (typeof window !== 'undefined') {
                 const currentPath = window.location.pathname;
-                // Avoid redirect loop or reloading if already on auth pages
+                // Evitar bucle de redirección o recarga si ya está en páginas de autenticación
                 if (currentPath !== '/login' && currentPath !== '/register') {
                     localStorage.removeItem('token');
                     window.location.href = '/login';

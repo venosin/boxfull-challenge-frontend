@@ -74,7 +74,7 @@ export default function DashboardLayout({ children, title }: DashboardLayoutProp
 
                     <div style={{ padding: '0 24px 12px', fontSize: 12, fontWeight: 'bold', color: '#999' }}>MENÚ</div>
 
-                    {/* Custom Navigation Items */}
+                    {/* Elementos de navegación personalizados */}
                     <div style={{ padding: '0 24px' }}>
 
                         {/* Botón: Crear orden */}
